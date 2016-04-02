@@ -1,2 +1,2 @@
 # HepoRepo
-# going through GitHub's tutorial
+# A playground for getting to know git
