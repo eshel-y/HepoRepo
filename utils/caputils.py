@@ -62,7 +62,7 @@ def sync_with_cap(cap_file, **hints):
                     timestamp_from_eight_bytes(supposed_eight_bytes_next_packet_timestamp))):
                 print(datetime.datetime.fromtimestamp(
                     timestamp_from_eight_bytes(supposed_eight_bytes_next_packet_timestamp)))
-                return cap_file
+                return cap_file  # test only
             return
 
 print(sync_with_cap(open('../data/test.cap', 'rb')))
