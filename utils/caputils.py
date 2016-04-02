@@ -1,11 +1,7 @@
-import os
-import random
 import datetime
 import struct
 
-import math
-
-ONE_MILION = 1000000
+ONE_MILLION = 1000000
 
 MAXIMUM_YEAR = 2016
 
@@ -29,8 +25,8 @@ def timestamp_from_eight_bytes(eight_bytes):
     except AssertionError:
         raise ValueError('argument eight_bytes expected len 8, got len %d' % len(eight_bytes))
     whole, fraction = struct.unpack('II', eight_bytes)
-    assert fraction < ONE_MILION
-    return whole + (fraction / ONE_MILION)
+    assert fraction < ONE_MILLION
+    return whole + (fraction / ONE_MILLION)
 
 
 def sync_with_cap(cap_file, **hints):
@@ -62,7 +58,7 @@ def sync_with_cap(cap_file, **hints):
                     timestamp_from_eight_bytes(supposed_eight_bytes_next_packet_timestamp))):
                 print(datetime.datetime.fromtimestamp(
                     timestamp_from_eight_bytes(supposed_eight_bytes_next_packet_timestamp)))
-                return cap_file
+                return cap_file  # test only
             return
 
 print(sync_with_cap(open('../data/test.cap', 'rb')))
